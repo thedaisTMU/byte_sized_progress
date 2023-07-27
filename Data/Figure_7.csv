@@ -1,0 +1,19 @@
+Activity,Value,Answer
+Clients can resolve issues and give feedback online,0.314909090909091,Can be done
+Clients can apply online,0.306181818181818,Can be done
+Clients can register anaccount online,0.253818181818182,Can be done
+Clients can authenticate online,0.236363636363636,Can be done
+Clients can be issued documentation online,0.228363636363636,Can be done
+Clients can read the department's decision online,0.213090909090909,Can be done
+Clients can resolve issues and give feedback online,0.333090909090909,Cannot be done
+Clients can apply online,0.299636363636364,Cannot be done
+Clients can register anaccount online,0.290909090909091,Cannot be done
+Clients can authenticate online,0.320727272727273,Cannot be done
+Clients can be issued documentation online,0.324363636363636,Cannot be done
+Clients can read the department's decision online,0.364363636363636,Cannot be done
+Clients can resolve issues and give feedback online,0.352,Not applicable
+Clients can apply online,0.394181818181818,Not applicable
+Clients can register anaccount online,0.455272727272727,Not applicable
+Clients can authenticate online,0.442909090909091,Not applicable
+Clients can be issued documentation online,0.447272727272727,Not applicable
+Clients can read the department's decision online,0.422545454545455,Not applicable

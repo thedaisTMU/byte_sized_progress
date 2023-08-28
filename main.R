@@ -28,6 +28,7 @@ figure.2 <- plot.column.dais(figure.2.data,
                              Index,
                              colours=set.colours(1,categorical.choice="hot.pink"),
                              plot.title=graph.data[Figure_number=="Figure 2",Figure_title],
+                             label = TRUE,
                              plot.fig.num="Figure 2",
                              caption=graph.data[Figure_number=="Figure 2",Caption])
 
@@ -48,14 +49,18 @@ figure.3 <- plot.column.dais(figure.3.data,
 
 #######################################################
 figure.4.data <- fread("Data/Figure_4.csv") #Need to reorder the columns
+figure.4.data[,Value:=Value*100]
 figure.4.data[,Answer:=reorder(Answer,c(1,2,3,4,5))]
 figure.4 <- plot.column.dais(figure.4.data,
                              Value,
                              Answer,
                              y.axis=graph.data[Figure_number=="Figure 4",Y_Axis],
+                             label=TRUE,
+                             label.unit = "%",
                              plot.title = str_wrap(graph.data[Figure_number=="Figure 4",Figure_title],80),
                              plot.fig.num = "Figure 4",
-                             caption=graph.data[Figure_number=="Figure 4",Caption])
+                             caption=graph.data[Figure_number=="Figure 4",Caption]) +
+  scale_y_continuous(expand=c(0,0),limits=c(0,35),breaks=c(0,10,20,30),labels=c("0%","10%","20%","30%"))
 
 ########################################################
 figure.5.data <- fread("Data/Figure_5.csv")
@@ -121,7 +126,8 @@ figure.8 <- plot.column.dais(figure.8.data,
                            plot.title = graph.data[Figure_number=="Figure 8",Figure_title],
                            order = "ascending",
                            plot.fig.num = "Figure 8",
-                           caption = graph.data[Figure_number=="Figure 8",Caption])+ guides(fill="none")
+                           caption = graph.data[Figure_number=="Figure 8",Caption])+ guides(fill="none") +
+  theme(axis.text.x = ggplot2::element_text(size=8, margin=ggplot2::margin(t=2), family = "Replica-Light"))
 
 
 #########################################################
@@ -132,8 +138,10 @@ figure.9 <- plot.column.dais(figure.9.data,
                              plot.title = graph.data[Figure_number=="Figure 9",Figure_title],
                              y.axis = graph.data[Figure_number=="Figure 9",Y_Axis],
                              order = "ascending",
+                             label = TRUE,
                              plot.fig.num = "Figure 9",
-                             caption = graph.data[Figure_number=="Figure 9",Caption])
+                             caption = graph.data[Figure_number=="Figure 9",Caption]) +
+  scale_y_continuous(expand=c(0,0),limits = c(0,1.1),breaks=c(0,0.25,0.5,0.75,1),labels=c("0","0.25","0.50","0.75","1.00"))
 
 
 #########################################################
@@ -144,6 +152,7 @@ figure.10 <- plot.column.dais(figure.10.data,
                               Year,
                               group.by = Geography,
                               label.unit="%",
+                              label = TRUE,
                               plot.title = graph.data[Figure_number=="Figure 10",Figure_title],
                               y.axis = graph.data[Figure_number=="Figure 10",Y_Axis],
                               colours = set.colours(3,categorical.choice = c("hot.pink","black","gold")),
@@ -156,6 +165,7 @@ figure.11.data[,Coverage:=Coverage*100]
 figure.11 <- plot.column.dais(figure.11.data,
                               Coverage,
                               Geography,
+                              label = TRUE,
                               label.unit = "%",
                               plot.title = graph.data[Figure_number=="Figure 11",Figure_title],
                               y.axis = graph.data[Figure_number=="Figure 11",Y_Axis],
